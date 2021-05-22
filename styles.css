@@ -1,0 +1,150 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    color: #003262;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+h1 {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.choice {
+    margin: 0 1.5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+}
+
+.valueRange select,
+.questionNumber select {
+    font-size: 1rem;
+    align-self: center;
+    width: 80px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+.operation {
+    margin: 1rem 1.5rem;
+    display: grid;
+    justify-self: center;
+    font-size: 1.2rem;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "left add sub mul div" "left neg dis . .";
+}
+
+.operation p {
+    grid-area: left;
+    justify-self: center;
+    align-self: center;
+}
+
+.addOper {
+    grid-area: add;
+    justify-self: start;
+}
+
+.subOper {
+    grid-area: sub;
+    justify-self: start;
+}
+
+.mulOper {
+    grid-area: mul;
+    justify-self: start;
+}
+
+.divOper {
+    grid-area: div;
+    justify-self: start;
+}
+
+.neg {
+    margin-top: 1rem;
+    grid-area: neg;
+    justify-self: start;
+}
+
+.disorder {
+    margin-top: 1rem;
+    grid-area: dis;
+    justify-self: start;
+}
+
+.butt {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+#start,
+#pause,
+#reset,
+#submit {
+    margin: 0 20px;
+    width: 100px;
+    border: solid 2px;
+    background-color: #FDB515;
+    border-radius: 10px;
+    padding: 5px 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+
+#start:hover,
+#pause:hover,
+#reset:hover,
+#submit:hover {
+    background-color: #C4820E;
+    cursor: pointer;
+}
+
+#timer {
+    font-size: 3rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    display: grid;
+    margin-top: 1.5rem;
+    justify-self: center;
+    font-size: 1.5rem;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.cell {
+    display: none;
+}
+
+.cell.SHOW {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.cell.WRONG {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    color: red;
+}
+
+.cell.SHOW input {
+    width: 60px;
+    font-size: 1rem;
+    align-content: center;
+}

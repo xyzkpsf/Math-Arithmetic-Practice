@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Arithmetic Practice</title>
+</head>
+
+<body>
+    <h1>Welcome to Math Arithmetic Practice</h1>
+    <div class="choice">
+        <div class="valueRange">
+            <label for="vRan1">Value Range (+-):</label>
+            <select id="vRan1">
+                <option value="10">10</option>
+                <option value="100">100</option>
+                <option value="1000">1000</option>
+                <option value="10000">10000</option>
+              </select>
+        </div>
+        <div class="valueRange">
+            <label for="vRan2">Value Range (*/):</label>
+            <select id="vRan2">
+                <option value="10">10</option>
+                <option value="100">100</option>
+                <option value="1000">1000</option>
+                <option value="10000">10000</option>
+              </select>
+        </div>
+
+        <div class="questionNumber">
+            <label for="qNum">Question Numbers:</label>
+            <select id="qNum">
+                <option value="20">20</option>
+                <option value="40">40</option>
+                <option value="60">60</option>
+                <option value="80">80</option>
+                <option value="100">100</option>
+              </select>
+        </div>
+    </div>
+    <div class="operation">
+        <p>Options:</p>
+        <div class="addOper">
+            <label for='add'>Addition(+)</label>
+            <input type="checkbox" name='add' id='add' checked="checked">
+        </div>
+        <div class="subOper">
+            <label for='sub'>Subtraction(-)</label>
+            <input type="checkbox" name='sub' id='sub' checked="checked">
+        </div>
+        <div class="mulOper">
+            <label for='mul'>Multiplication(*)</label>
+            <input type="checkbox" name='mul' id='mul'>
+        </div>
+        <div class="divOper">
+            <label for='div'>Division(/)</label>
+            <input type="checkbox" name='div' id='div'>
+        </div>
+        <div class="neg">
+            <label for='neg'>Negative</label>
+            <input type="checkbox" name='neg' id='neg'>
+        </div>
+        <div class="disorder">
+            <label for='disorder'>Disorder</label>
+            <input type="checkbox" name='disorder' id='disorder'>
+        </div>
+    </div>
+    <div class="butt">
+        <button id="reset">Reset</button>
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="submit">Submit</button>
+    </div>
+    <div class="question">
+        <div id="timer">00:00:00</div>
+    </div>
+    <div class="board" id='board'>
+
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+        <div class="cell" data-cell>
+            <label for="q">1+1=</label>
+            <input name="q" id="ans" />
+        </div>
+
+    </div>
+    <script src="app.js" charset="utf-8"></script>
+</body>
+
+
+</html>
