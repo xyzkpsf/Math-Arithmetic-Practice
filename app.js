@@ -15,179 +15,196 @@ let subOpe;
 let mulOpe;
 let divOpe;
 let negOpe;
-let disorderOpe;
-let operations = ["+", "-", "*", "/"];
+let operations = ['+', '-', '*', '/'];
 let selectOper;
 let opeArr;
 let ansArr = [];
 let allCorrect = false;
 const cellElements = document.querySelectorAll('[data-cell]');
-const board = document.getElementById('board')
+const board = document.getElementById('board');
 
 startButton.addEventListener('click', () => {
-    if (!begin) start();
-    if (pause) {
-        pause = false;
-        setTime();
-        cellElements.forEach((cell, index) => {
-            if (index < qNum) cell.classList.add("SHOW");
-        })
-    }
-})
+  if (!begin) start();
+  if (pause) {
+    pause = false;
+    setTime();
+    cellElements.forEach((cell, index) => {
+      if (index < qNum) cell.classList.add('SHOW');
+    });
+  }
+});
 
 pauseButton.addEventListener('click', () => {
-    pause = true;
-    clearInterval(timer);
-    startButton.innerText = 'Resume';
-    cellElements.forEach((cell, index) => {
-        if (index < qNum) cell.classList.remove("SHOW");
-    })
-})
+  pause = true;
+  clearInterval(timer);
+  startButton.innerText = 'Resume';
+  cellElements.forEach((cell, index) => {
+    if (index < qNum) cell.classList.remove('SHOW');
+  });
+});
 
 submitButton.addEventListener('click', () => {
-    checkAnswer();
-})
+  checkAnswer();
+});
 
 resetButton.addEventListener('click', () => {
-    if (confirm('Are you sure you want to reset everything?')) {
-        cellElements.forEach((cell, index) => {
-            if (index < qNum) {
-                if (cell.classList.contains('WRONG')) {
-                    cell.classList.remove('WRONG');
-                }
-            }
-        })
-        begin = false;
-        ansArr = [];
-        start();
-    }
-})
+  if (confirm('Are you sure you want to reset everything?')) {
+    cellElements.forEach((cell, index) => {
+      if (index < qNum) {
+        if (cell.classList.contains('WRONG')) {
+          cell.classList.remove('WRONG');
+        }
+      }
+    });
+    begin = false;
+    ansArr = [];
+    start();
+  }
+});
 
 function start() {
-    begin = true;
-    getValue();
-    clearInterval(timer);
-    setTime();
-    setQuestion();
+  begin = true;
+  getValue();
+  clearInterval(timer);
+  setTime();
+  setQuestion();
 }
 
 function setTime() {
-    if (startButton.innerText === 'Resume') {
-        startButton.innerText = 'Start';
-    }
-    timer = setInterval(() => {
-        timeCount++;
-        var hour = parseInt(timeCount / (60 * 60 * 60))
-        var min = parseInt(timeCount / (60 * 60));
-        var sec = parseInt(timeCount / 60 % 60);
-        clock.innerText = toDub(hour) + ":" + toDub(min) + ":" + toDub(sec);
-    }, 1000 / 60);
+  if (startButton.innerText === 'Resume') {
+    startButton.innerText = 'Start';
+  }
+  timeCount = 0;
+  timer = setInterval(() => {
+    timeCount++;
+    var hour = parseInt(timeCount / (60 * 60 * 60));
+    var min = parseInt(timeCount / (60 * 60));
+    var sec = parseInt((timeCount / 60) % 60);
+    clock.innerText = toDub(hour) + ':' + toDub(min) + ':' + toDub(sec);
+  }, 1000 / 60);
 }
 
 function toDub(n) {
-    return n < 10 ? "0" + n : "" + n;
+  return n < 10 ? '0' + n : '' + n;
 }
 
 function getValue() {
-    qNum = document.getElementById('qNum').value;
-    vRan1 = document.getElementById('vRan1').value;
-    vRan2 = document.getElementById('vRan2').value;
-    addOpe = document.getElementById('add').checked;
-    subOpe = document.getElementById('sub').checked;
-    mulOpe = document.getElementById('mul').checked;
-    divOpe = document.getElementById('div').checked;
-    negOpe = document.getElementById('neg').checked;
-    disorderOpe = document.getElementById('disorder').checked;
+  qNum = document.getElementById('qNum').value;
+  vRan1 = document.getElementById('vRan1').value;
+  vRan2 = document.getElementById('vRan2').value;
+  addOpe = document.getElementById('add').checked;
+  subOpe = document.getElementById('sub').checked;
+  mulOpe = document.getElementById('mul').checked;
+  divOpe = document.getElementById('div').checked;
+  negOpe = document.getElementById('neg').checked;
 }
 
 function setQuestion() {
-    var opers = []
-    selectOper = [addOpe, subOpe, mulOpe, divOpe].forEach((element, index) => {
-        if (element) opers.push(index);
-    });
-    opeArr = Array.from({ length: qNum }, () => opers[Math.floor(Math.random() * opers.length)]);
-    // First and Second number in + or - quetions
-    let addSubArr_1 = Array.from({ length: qNum }, () => Math.floor(Math.random() * vRan1) + 1);
-    let addSubArr_2 = Array.from({ length: qNum }, () => Math.floor(Math.random() * vRan1) + 1);
+  var opers = [];
+  selectOper = [addOpe, subOpe, mulOpe, divOpe].forEach((element, index) => {
+    if (element) opers.push(index);
+  });
+  opeArr = Array.from(
+    { length: qNum },
+    () => opers[Math.floor(Math.random() * opers.length)]
+  );
+  // First and Second number in + or - quetions
+  let addSubArr_1 = Array.from(
+    { length: qNum },
+    () => Math.floor(Math.random() * vRan1) + 1
+  );
+  let addSubArr_2 = Array.from(
+    { length: qNum },
+    () => Math.floor(Math.random() * vRan1) + 1
+  );
 
-    // First and Second number in * or / quetions
-    let mulDivArr_1 = Array.from({ length: qNum }, () => Math.floor(Math.random() * vRan2) + 1);
-    let mulDivArr_2 = Array.from({ length: qNum }, () => Math.floor(Math.random() * vRan2) + 1);
+  // First and Second number in * or / quetions
+  let mulDivArr_1 = Array.from(
+    { length: qNum },
+    () => Math.floor(Math.random() * vRan2) + 1
+  );
+  let mulDivArr_2 = Array.from(
+    { length: qNum },
+    () => Math.floor(Math.random() * vRan2) + 1
+  );
 
-    cellElements.forEach((cell, index) => {
-        if (index < qNum) {
-            cell.classList.add("SHOW");
-            var num1;
-            var num2;
-            if ((opeArr[index] == 0) || (opeArr[index] == 1)) {
-                num1 = addSubArr_1[index];
-                num2 = addSubArr_2[index];
-                if ((!negOpe) && (opeArr[index] == 1) && (num1 < num2)) {
-                    num2 = Math.floor(Math.random() * num1);
-                }
-            } else {
-                num1 = mulDivArr_1[index];
-                num2 = mulDivArr_2[index];
-                if (negOpe) {
-                    if (Math.random() > 0.5) num1 *= -1;
-                    if (Math.random() > 0.5) num2 *= -1;
-                }
-                // Only assign integer division
-                if ((opeArr[index] == 3) && !Number.isInteger(num1 / num2)) {
-                    // Make sure don't get prime number in division
-                    while (isPrime(num1)) {
-                        num1 = Math.floor(Math.random() * vRan2) + 1;
-                    }
-                    var flag = false;
-                    while (!flag) {
-                        num2 = Math.floor(Math.random() * num1)
-                        if (Number.isInteger(num1 / num2)) flag = true;
-                    }
-                }
-            }
-            cell.textContent = num1 + operations[opeArr[index]] + num2 + "=";
-            var inputBox = document.createElement('input');
-            cell.appendChild(inputBox);
-            var ans;
-            switch (opeArr[index]) {
-                case 0:
-                    ans = num1 + num2;
-                    break;
-                case 1:
-                    ans = num1 - num2;
-                    break;
-                case 2:
-                    ans = num1 * num2;
-                    break;
-                case 3:
-                    ans = num1 / num2;
-                    break;
-            }
-            ansArr.push(ans)
+  cellElements.forEach((cell, index) => {
+    if (index < qNum) {
+      cell.classList.add('SHOW');
+      var num1;
+      var num2;
+      if (opeArr[index] == 0 || opeArr[index] == 1) {
+        num1 = addSubArr_1[index];
+        num2 = addSubArr_2[index];
+        if (!negOpe && opeArr[index] == 1 && num1 < num2) {
+          num2 = Math.floor(Math.random() * num1);
         }
-    })
+      } else {
+        num1 = mulDivArr_1[index];
+        num2 = mulDivArr_2[index];
+        if (negOpe) {
+          if (Math.random() > 0.5) num1 *= -1;
+          if (Math.random() > 0.5) num2 *= -1;
+        }
+        // Only assign integer division
+        if (opeArr[index] == 3 && !Number.isInteger(num1 / num2)) {
+          // Make sure don't get prime number in division
+          while (isPrime(num1)) {
+            num1 = Math.floor(Math.random() * vRan2) + 1;
+          }
+          var flag = false;
+          while (!flag) {
+            num2 = Math.floor(Math.random() * num1);
+            if (Number.isInteger(num1 / num2)) flag = true;
+          }
+        }
+      }
+      let num1String = num1 < 0 ? '(' + num1 + ') ' : num1;
+      let num2String = num2 < 0 ? '(' + num2 + ') ' : num2;
+
+      cell.textContent =
+        num1String + ' ' + operations[opeArr[index]] + ' ' + num2String + '=';
+      var inputBox = document.createElement('input');
+      cell.appendChild(inputBox);
+      var ans;
+      switch (opeArr[index]) {
+        case 0:
+          ans = num1 + num2;
+          break;
+        case 1:
+          ans = num1 - num2;
+          break;
+        case 2:
+          ans = num1 * num2;
+          break;
+        case 3:
+          ans = num1 / num2;
+          break;
+      }
+      ansArr.push(ans);
+    }
+  });
 }
 
 function checkAnswer() {
-    allCorrect = true;
-    cellElements.forEach((cell, index) => {
-        if (index < qNum) {
-            if (ansArr[index] != cell.children[0].value) {
-                allCorrect = false;
-                cell.classList.add('WRONG');
-            } else if (cell.classList.contains('WRONG')) {
-                cell.classList.remove('WRONG');
-            }
-        }
-    })
-    if (allCorrect) {
-        clearInterval(timer);
-        clock.innerText = '(ᵔᴥᵔ)';
+  allCorrect = true;
+  cellElements.forEach((cell, index) => {
+    if (index < qNum) {
+      if (ansArr[index] != cell.children[0].value) {
+        allCorrect = false;
+        cell.classList.add('WRONG');
+      } else if (cell.classList.contains('WRONG')) {
+        cell.classList.remove('WRONG');
+      }
     }
+  });
+  if (allCorrect) {
+    clearInterval(timer);
+    clock.innerText = '(ᵔᴥᵔ) ' + 'Good Job!' + ' (ᵔᴥᵔ)';
+  }
 }
 
 function isPrime(num) {
-    for (var i = 2; i < num; i++)
-        if (num % i === 0) return false;
-    return num > 1;
+  for (var i = 2; i < num; i++) if (num % i === 0) return false;
+  return num > 1;
 }

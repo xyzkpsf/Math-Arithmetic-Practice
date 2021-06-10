@@ -10,63 +10,60 @@
 </head>
 
 <body>
-    <h1>Welcome to Math Arithmetic Practice</h1>
-    <div class="choice">
-        <div class="valueRange">
-            <label for="vRan1">Value Range (+-):</label>
-            <select id="vRan1">
-                <option value="10">10</option>
-                <option value="100">100</option>
-                <option value="1000">1000</option>
-                <option value="10000">10000</option>
-              </select>
-        </div>
-        <div class="valueRange">
-            <label for="vRan2">Value Range (*/):</label>
-            <select id="vRan2">
-                <option value="10">10</option>
-                <option value="100">100</option>
-                <option value="1000">1000</option>
-                <option value="10000">10000</option>
-              </select>
-        </div>
+    <div class="topwrapper">
+        <h1 id='topbar'>Welcome to Math Arithmetic Practice</h1>
+        <div class="choice">
+            <div class="valueRange">
+                <label for="vRan1">Value Range (+-):</label>
+                <select id="vRan1">
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="1000">1000</option>
+                    <option value="10000">10000</option>
+                </select>
+            </div>
+            <div class="valueRange">
+                <label for="vRan2">Value Range (*/):</label>
+                <select id="vRan2">
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="1000">1000</option>
+                    <option value="10000">10000</option>
+                </select>
+            </div>
 
-        <div class="questionNumber">
-            <label for="qNum">Question Numbers:</label>
-            <select id="qNum">
-                <option value="20">20</option>
-                <option value="40">40</option>
-                <option value="60">60</option>
-                <option value="80">80</option>
-                <option value="100">100</option>
-              </select>
+            <div class="questionNumber">
+                <label for="qNum">Question Numbers:</label>
+                <select id="qNum">
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                    <option value="60">60</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="operation">
-        <p>Options:</p>
-        <div class="addOper">
-            <label for='add'>Addition(+)</label>
-            <input type="checkbox" name='add' id='add' checked="checked">
-        </div>
-        <div class="subOper">
-            <label for='sub'>Subtraction(-)</label>
-            <input type="checkbox" name='sub' id='sub' checked="checked">
-        </div>
-        <div class="mulOper">
-            <label for='mul'>Multiplication(*)</label>
-            <input type="checkbox" name='mul' id='mul'>
-        </div>
-        <div class="divOper">
-            <label for='div'>Division(/)</label>
-            <input type="checkbox" name='div' id='div'>
-        </div>
-        <div class="neg">
-            <label for='neg'>Negative</label>
-            <input type="checkbox" name='neg' id='neg'>
-        </div>
-        <div class="disorder">
-            <label for='disorder'>Disorder</label>
-            <input type="checkbox" name='disorder' id='disorder'>
+        <div class="operation">
+            <div class="addOper">
+                <label for='add'>Addition(+)</label>
+                <input type="checkbox" name='add' id='add' checked="checked">
+            </div>
+            <div class="subOper">
+                <label for='sub'>Subtraction(-)</label>
+                <input type="checkbox" name='sub' id='sub' checked="checked">
+            </div>
+            <div class="mulOper">
+                <label for='mul'>Multiplication(*)</label>
+                <input type="checkbox" name='mul' id='mul'>
+            </div>
+            <div class="divOper">
+                <label for='div'>Division(/)</label>
+                <input type="checkbox" name='div' id='div'>
+            </div>
+            <div class="neg">
+                <label for='neg'>Negative</label>
+                <input type="checkbox" name='neg' id='neg'>
+            </div>
         </div>
     </div>
     <div class="butt">
