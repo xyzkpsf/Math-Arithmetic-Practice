@@ -1,8 +1,8 @@
-let startButton = document.getElementById('start');
-let resetButton = document.getElementById('reset');
-let pauseButton = document.getElementById('pause');
-let submitButton = document.getElementById('submit');
-let clock = document.getElementById('timer');
+let startButton = document.getElementById("start");
+let resetButton = document.getElementById("reset");
+let pauseButton = document.getElementById("pause");
+let submitButton = document.getElementById("submit");
+let clock = document.getElementById("timer");
 let begin = false;
 let pause = false;
 let timeCount = 0;
@@ -15,44 +15,44 @@ let subOpe;
 let mulOpe;
 let divOpe;
 let negOpe;
-let operations = ['+', '-', '*', '/'];
+let operations = ["+", "-", "*", "/"];
 let selectOper;
 let opeArr;
 let ansArr = [];
 let allCorrect = false;
-const cellElements = document.querySelectorAll('[data-cell]');
-const board = document.getElementById('board');
+const cellElements = document.querySelectorAll("[data-cell]");
+const board = document.getElementById("board");
 
-startButton.addEventListener('click', () => {
+startButton.addEventListener("click", () => {
   if (!begin) start();
   if (pause) {
     pause = false;
     setTime();
     cellElements.forEach((cell, index) => {
-      if (index < qNum) cell.classList.add('SHOW');
+      if (index < qNum) cell.classList.add("SHOW");
     });
   }
 });
 
-pauseButton.addEventListener('click', () => {
+pauseButton.addEventListener("click", () => {
   pause = true;
   clearInterval(timer);
-  startButton.innerText = 'Resume';
+  startButton.innerText = "Resume";
   cellElements.forEach((cell, index) => {
-    if (index < qNum) cell.classList.remove('SHOW');
+    if (index < qNum) cell.classList.remove("SHOW");
   });
 });
 
-submitButton.addEventListener('click', () => {
+submitButton.addEventListener("click", () => {
   checkAnswer();
 });
 
-resetButton.addEventListener('click', () => {
-  if (confirm('Are you sure you want to reset everything?')) {
+resetButton.addEventListener("click", () => {
+  if (confirm("Are you sure you want to reset everything?")) {
     cellElements.forEach((cell, index) => {
       if (index < qNum) {
-        if (cell.classList.contains('WRONG')) {
-          cell.classList.remove('WRONG');
+        if (cell.classList.contains("WRONG")) {
+          cell.classList.remove("WRONG");
         }
       }
     });
@@ -64,6 +64,9 @@ resetButton.addEventListener('click', () => {
 
 function start() {
   begin = true;
+  cellElements.forEach((cell) => {
+    cell.classList.remove("SHOW");
+  });
   getValue();
   clearInterval(timer);
   setTime();
@@ -71,8 +74,8 @@ function start() {
 }
 
 function setTime() {
-  if (startButton.innerText === 'Resume') {
-    startButton.innerText = 'Start';
+  if (startButton.innerText === "Resume") {
+    startButton.innerText = "Start";
   }
   timeCount = 0;
   timer = setInterval(() => {
@@ -80,23 +83,23 @@ function setTime() {
     var hour = parseInt(timeCount / (60 * 60 * 60));
     var min = parseInt(timeCount / (60 * 60));
     var sec = parseInt((timeCount / 60) % 60);
-    clock.innerText = toDub(hour) + ':' + toDub(min) + ':' + toDub(sec);
+    clock.innerText = toDub(hour) + ":" + toDub(min) + ":" + toDub(sec);
   }, 1000 / 60);
 }
 
 function toDub(n) {
-  return n < 10 ? '0' + n : '' + n;
+  return n < 10 ? "0" + n : "" + n;
 }
 
 function getValue() {
-  qNum = document.getElementById('qNum').value;
-  vRan1 = document.getElementById('vRan1').value;
-  vRan2 = document.getElementById('vRan2').value;
-  addOpe = document.getElementById('add').checked;
-  subOpe = document.getElementById('sub').checked;
-  mulOpe = document.getElementById('mul').checked;
-  divOpe = document.getElementById('div').checked;
-  negOpe = document.getElementById('neg').checked;
+  qNum = document.getElementById("qNum").value;
+  vRan1 = document.getElementById("vRan1").value;
+  vRan2 = document.getElementById("vRan2").value;
+  addOpe = document.getElementById("add").checked;
+  subOpe = document.getElementById("sub").checked;
+  mulOpe = document.getElementById("mul").checked;
+  divOpe = document.getElementById("div").checked;
+  negOpe = document.getElementById("neg").checked;
 }
 
 function setQuestion() {
@@ -130,7 +133,7 @@ function setQuestion() {
 
   cellElements.forEach((cell, index) => {
     if (index < qNum) {
-      cell.classList.add('SHOW');
+      cell.classList.add("SHOW");
       var num1;
       var num2;
       if (opeArr[index] == 0 || opeArr[index] == 1) {
@@ -159,12 +162,12 @@ function setQuestion() {
           }
         }
       }
-      let num1String = num1 < 0 ? '(' + num1 + ') ' : num1;
-      let num2String = num2 < 0 ? '(' + num2 + ') ' : num2;
+      let num1String = num1 < 0 ? "(" + num1 + ") " : num1;
+      let num2String = num2 < 0 ? "(" + num2 + ") " : num2;
 
       cell.textContent =
-        num1String + ' ' + operations[opeArr[index]] + ' ' + num2String + '=';
-      var inputBox = document.createElement('input');
+        num1String + " " + operations[opeArr[index]] + " " + num2String + "=";
+      var inputBox = document.createElement("input");
       cell.appendChild(inputBox);
       var ans;
       switch (opeArr[index]) {
@@ -192,15 +195,15 @@ function checkAnswer() {
     if (index < qNum) {
       if (ansArr[index] != cell.children[0].value) {
         allCorrect = false;
-        cell.classList.add('WRONG');
-      } else if (cell.classList.contains('WRONG')) {
-        cell.classList.remove('WRONG');
+        cell.classList.add("WRONG");
+      } else if (cell.classList.contains("WRONG")) {
+        cell.classList.remove("WRONG");
       }
     }
   });
   if (allCorrect) {
     clearInterval(timer);
-    clock.innerText = '(ᵔᴥᵔ) ' + 'Good Job!' + ' (ᵔᴥᵔ)';
+    clock.innerText = "(ᵔᴥᵔ) " + "Good Job!" + " (ᵔᴥᵔ)";
   }
 }
 
