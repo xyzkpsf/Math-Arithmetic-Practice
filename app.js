@@ -35,12 +35,14 @@ startButton.addEventListener("click", () => {
 });
 
 pauseButton.addEventListener("click", () => {
-  pause = true;
-  clearInterval(timer);
-  startButton.innerText = "Resume";
-  cellElements.forEach((cell, index) => {
-    if (index < qNum) cell.classList.remove("SHOW");
-  });
+  if (begin) {
+    pause = true;
+    clearInterval(timer);
+    startButton.innerText = "Resume";
+    cellElements.forEach((cell, index) => {
+      if (index < qNum) cell.classList.remove("SHOW");
+    });
+  }
 });
 
 submitButton.addEventListener("click", () => {
@@ -74,10 +76,13 @@ function start() {
 }
 
 function setTime() {
+  if (startButton.innerText === "Start") {
+    timeCount = 0;
+  }
   if (startButton.innerText === "Resume") {
     startButton.innerText = "Start";
   }
-  timeCount = 0;
+
   timer = setInterval(() => {
     timeCount++;
     var hour = parseInt(timeCount / (60 * 60 * 60));
