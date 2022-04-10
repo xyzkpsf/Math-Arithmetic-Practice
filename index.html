@@ -13,26 +13,33 @@
       <h1 id="topbar">Welcome to Math Arithmetic Practice</h1>
       <div class="choice">
         <div class="valueRange">
-          <label for="vRan1">Value Range (+-):</label>
+          <label for="vRan1">Digits (+-):</label>
           <select id="vRan1">
-            <option value="10">10</option>
-            <option value="100">100</option>
-            <option value="1000">1000</option>
-            <option value="10000">10000</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
         </div>
         <div class="valueRange">
-          <label for="vRan2">Value Range (*/):</label>
+          <label for="vRan2">Digits (*):</label>
           <select id="vRan2">
-            <option value="10">10</option>
-            <option value="100">100</option>
-            <option value="1000">1000</option>
-            <option value="10000">10000</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="valueRange">
+          <label for="vRan3">Digits (/):</label>
+          <select id="vRan3">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
         </div>
 
         <div class="questionNumber">
-          <label for="qNum">Question Numbers:</label>
+          <label for="qNum">Question Num:</label>
           <select id="qNum">
             <option value="10">10</option>
             <option value="20">20</option>
@@ -48,23 +55,35 @@
       <div class="operation">
         <div class="addOper">
           <label for="add">Addition(+)</label>
-          <input type="checkbox" name="add" id="add" checked="checked" />
+          <input
+            type="checkbox"
+            name="add"
+            id="add"
+            checked="checked"
+            class="checkBox"
+          />
         </div>
         <div class="subOper">
           <label for="sub">Subtraction(-)</label>
-          <input type="checkbox" name="sub" id="sub" checked="checked" />
+          <input
+            type="checkbox"
+            name="sub"
+            id="sub"
+            checked="checked"
+            class="checkBox"
+          />
         </div>
         <div class="mulOper">
           <label for="mul">Multiplication(*)</label>
-          <input type="checkbox" name="mul" id="mul" />
+          <input type="checkbox" name="mul" id="mul" class="checkBox" />
         </div>
         <div class="divOper">
           <label for="div">Division(/)</label>
-          <input type="checkbox" name="div" id="div" />
+          <input type="checkbox" name="div" id="div" class="checkBox" />
         </div>
         <div class="neg">
           <label for="neg">Negative</label>
-          <input type="checkbox" name="neg" id="neg" />
+          <input type="checkbox" name="neg" id="neg" class="checkBox" />
         </div>
       </div>
     </div>
@@ -73,6 +92,7 @@
       <button id="start">Start</button>
       <button id="pause">Pause</button>
       <button id="submit">Submit</button>
+      <button id="check">Check</button>
     </div>
     <div class="question">
       <div id="timer">00:00:00</div>

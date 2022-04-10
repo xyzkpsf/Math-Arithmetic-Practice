@@ -2,6 +2,7 @@ let startButton = document.getElementById("start");
 let resetButton = document.getElementById("reset");
 let pauseButton = document.getElementById("pause");
 let submitButton = document.getElementById("submit");
+let checkButton = document.getElementById("check");
 let clock = document.getElementById("timer");
 let begin = false;
 let pause = false;
@@ -10,6 +11,7 @@ let timer = null;
 let qNum;
 let vRan1;
 let vRan2;
+let vRan3;
 let addOpe;
 let subOpe;
 let mulOpe;
@@ -49,6 +51,20 @@ submitButton.addEventListener("click", () => {
   checkAnswer();
 });
 
+checkButton.addEventListener("click", () => {
+  if (begin && confirm("Are you sure you want to show the answer?")) {
+    cellElements.forEach((cell, index) => {
+      if (index < qNum) {
+        cell.children[0].value = ansArr[index];
+      }
+    });
+    startButton.classList.add("hide");
+    submitButton.classList.add("hide");
+    pauseButton.classList.add("hide");
+    checkButton.classList.add("hide");
+  }
+});
+
 resetButton.addEventListener("click", () => {
   if (confirm("Are you sure you want to reset everything?")) {
     cellElements.forEach((cell, index) => {
@@ -73,6 +89,10 @@ function start() {
   clearInterval(timer);
   setTime();
   setQuestion();
+  startButton.classList.remove("hide");
+  submitButton.classList.remove("hide");
+  pauseButton.classList.remove("hide");
+  checkButton.classList.remove("hide");
 }
 
 function setTime() {
@@ -98,8 +118,9 @@ function toDub(n) {
 
 function getValue() {
   qNum = document.getElementById("qNum").value;
-  vRan1 = document.getElementById("vRan1").value;
-  vRan2 = document.getElementById("vRan2").value;
+  vRan1 = Math.pow(10, document.getElementById("vRan1").value);
+  vRan2 = Math.pow(10, document.getElementById("vRan2").value);
+  vRan3 = Math.pow(10, document.getElementById("vRan3").value);
   addOpe = document.getElementById("add").checked;
   subOpe = document.getElementById("sub").checked;
   mulOpe = document.getElementById("mul").checked;
@@ -127,13 +148,22 @@ function setQuestion() {
   );
 
   // First and Second number in * or / quetions
-  let mulDivArr_1 = Array.from(
+  let mulArr_1 = Array.from(
     { length: qNum },
     () => Math.floor(Math.random() * vRan2) + 1
   );
-  let mulDivArr_2 = Array.from(
+  let mulArr_2 = Array.from(
     { length: qNum },
     () => Math.floor(Math.random() * vRan2) + 1
+  );
+
+  let divArr_1 = Array.from(
+    { length: qNum },
+    () => Math.floor(Math.random() * vRan3) + 1
+  );
+  let divArr_2 = Array.from(
+    { length: qNum },
+    () => Math.floor(Math.random() * vRan3) + 1
   );
 
   cellElements.forEach((cell, index) => {
@@ -148,23 +178,16 @@ function setQuestion() {
           num2 = Math.floor(Math.random() * num1);
         }
       } else {
-        num1 = mulDivArr_1[index];
-        num2 = mulDivArr_2[index];
+        if (opeArr[index] == 2) {
+          num1 = mulArr_1[index];
+          num2 = mulArr_2[index];
+        } else {
+          num1 = divArr_1[index] * divArr_2[index];
+          num2 = divArr_2[index];
+        }
         if (negOpe) {
           if (Math.random() > 0.5) num1 *= -1;
           if (Math.random() > 0.5) num2 *= -1;
-        }
-        // Only assign integer division
-        if (opeArr[index] == 3 && !Number.isInteger(num1 / num2)) {
-          // Make sure don't get prime number in division
-          while (isPrime(num1)) {
-            num1 = Math.floor(Math.random() * vRan2) + 1;
-          }
-          var flag = false;
-          while (!flag) {
-            num2 = Math.floor(Math.random() * num1);
-            if (Number.isInteger(num1 / num2)) flag = true;
-          }
         }
       }
       let num1String = num1 < 0 ? "(" + num1 + ") " : num1;
